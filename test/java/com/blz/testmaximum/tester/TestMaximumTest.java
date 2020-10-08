@@ -4,11 +4,7 @@
 package com.blz.testmaximum.tester;
 
 import org.junit.Test;
-
 import com.blz.testmaximum.runner.TestMaximumMain;
-
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 
 public class TestMaximumTest {
@@ -16,6 +12,12 @@ public class TestMaximumTest {
 	public void test_Given_MaxInteger_At1st_Position_Returns_Same_Number() {
 		Integer actual=65;
 		Integer expected=new TestMaximumMain(65, 45, 60).findMax(65, 45, 60);
+		Assert.assertEquals(expected,actual);
+	}
+	@Test
+	public void test_Given_MaxInteger_At_2nd_Position_Returns_Same_Number() {
+		Integer actual=96;
+		Integer expected=new TestMaximumMain(65, 96, 40).findMax(65, 96, 40);
 		Assert.assertEquals(expected,actual);
 	}
 }
