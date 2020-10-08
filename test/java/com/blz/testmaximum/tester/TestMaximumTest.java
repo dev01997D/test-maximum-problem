@@ -20,5 +20,11 @@ public class TestMaximumTest {
 		Integer expected=new TestMaximumMain(65, 96, 40).findMax(65, 96, 40);
 		Assert.assertEquals(expected,actual);
 	}
+	@Test
+	public void test_Given_MaxInteger_At_3rd_Position_Returns_Same_Number() {
+		Integer actual=115;
+		Integer expected=new TestMaximumMain(65, 96, 115).findMax(65, 96, 115);
+		Assert.assertEquals(expected,actual);
+	}
 }
 
