@@ -3,24 +3,19 @@
  */
 package com.blz.testmaximum.runner;
 
-import java.util.Scanner;
-
 public class TestMaximumMain {
 	Integer a, b, c;
 
-	public TestMaximumMain(Integer a, Integer b, Integer c) {
-		this.a = a;
-		this.b = b;
-		this.c = c;
+	public TestMaximumMain() {
 	}
-	
-	//Printing the largest number
+
+	// Printing the largest number
 	public void printMaxNumber() {
-		System.out.println("The maximum number is : " + findMax(a, b, c));
+		System.out.println("The maximum number is : " + findMaxInteger(a, b, c));
 	}
-	
-	//To find Maximum number from input
-	public Integer findMax(Integer a, Integer b, Integer c) {
+
+	// To find Maximum integer number from input
+	public Integer findMaxInteger(Integer a, Integer b, Integer c) {
 		Integer max = a;
 		if (b.compareTo(max) > 0)
 			max = b;
@@ -29,13 +24,18 @@ public class TestMaximumMain {
 		return max;
 	}
 
+	// To find Maximum float number from input
+	public Float findMaxFloat(Float f1, Float f2, Float f3) {
+		Float max = f1;
+		if (f2.compareTo(max) > 0)
+			max = f2;
+		if (f3.compareTo(max) > 0)
+			max = f3;
+		return max;
+	}
+
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter three Integer numbers : ");
-		Integer a = sc.nextInt();
-		Integer b = sc.nextInt();
-		Integer c = sc.nextInt();
-		new TestMaximumMain(a, b, c).printMaxNumber();
-		sc.close();
+		System.out.println("Max Integer number is : " + new TestMaximumMain().findMaxInteger(78, 89, 15));
+		System.out.println("Max Float number is : " + new TestMaximumMain().findMaxFloat(8.9f, 45.2f, 40.6f));
 	}
 }
