@@ -47,4 +47,22 @@ public class TestMaximumTest {
 		Float expected = new TestMaximumMain().findMaxFloat(70.6f, 32.5f, 95.6f);
 		Assert.assertEquals(expected, actual);
 	}
+	@Test
+	public void test_Given_Max_String_At_1st_Position_Returns_Same_Number() {
+		String actual = "Manohar";
+		String expected = new TestMaximumMain().findMaxString("Manohar", "Apple", "Dev");
+		Assert.assertEquals(expected, actual);
+	}
+	@Test
+	public void test_Given_Max_String_At_2nd_Position_Returns_Same_Number() {
+		String actual = "Ram";
+		String expected = new TestMaximumMain().findMaxString("Manohar", "Ram", "Dev");
+		Assert.assertEquals(expected, actual);
+	}
+	@Test
+	public void test_Given_Max_String_At_3rd_Position_Returns_Same_Number() {
+		String actual = "Wangdu";
+		String expected = new TestMaximumMain().findMaxString("Manohar", "Ram", "Wangdu");
+		Assert.assertEquals(expected, actual);
+	}
 }

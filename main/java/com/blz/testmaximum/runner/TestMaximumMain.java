@@ -34,8 +34,19 @@ public class TestMaximumMain {
 		return max;
 	}
 
+	// To find Maximum String from input
+	public String findMaxString(String s1, String s2, String s3) {
+		String max = s1;
+		if (s2.compareTo(max) > 0)
+			max = s2;
+		if (s3.compareTo(max) > 0)
+			max = s3;
+		return max;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Max Integer number is : " + new TestMaximumMain().findMaxInteger(78, 89, 15));
 		System.out.println("Max Float number is : " + new TestMaximumMain().findMaxFloat(8.9f, 45.2f, 40.6f));
+		System.out.println("Max String is : " + new TestMaximumMain().findMaxString("PineApple", "Apple", "Wanana"));
 	}
 }
