@@ -9,60 +9,23 @@ import org.junit.Assert;
 
 public class TestMaximumTest {
 	@Test
-	public void test_Given_MaxInteger_At1st_Position_Returns_Same_Number() {
-		Integer expected = 65;
-		Integer actual = (Integer) new TestMaximumMain<Integer>(65, 45, 15).testMaximum();
+	public void test_Given_N_numberOfInteger_ShouldReturn_Maximum_IntegerValue() {
+		Integer expected = 125;
+		Integer actual = new TestMaximumMain<Integer>().findMaximum(15, 4, 9, 78, 56, 48, 125, 98);
 		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
-	public void test_Given_MaxInteger_At_2nd_Position_Returns_Same_Number() {
-		Integer expected = 96;
-		Integer actual = new TestMaximumMain<Integer>(65, 96, 40).testMaximum();
+	public void test_Given_N_numberOfFloat_ShouldReturn_Maximum_FloatValue() {
+		Float expected = 100.5f;
+		Float actual = new TestMaximumMain<Float>().findMaximum(15.6f, 4.2f, 9.5f, 78.1f, 100.5f, 56.9f, 48.3f, 98.9f);
 		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
-	public void test_Given_MaxInteger_At_3rd_Position_Returns_Same_Number() {
-		Integer expected = 115;
-		Integer actual = new TestMaximumMain<Integer>(65, 96, 115).testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-
-	@Test
-	public void test_Given_Max_Float_At_1st_Position_Returns_Same_Number() {
-		Float expected = 11.5f;
-		Float actual = new TestMaximumMain<Float>(11.5f, 8.6f, 5.9f).testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-	@Test
-	public void test_Given_Max_Float_At_2nd_Position_Returns_Same_Number() {
-		Float expected = 45.9f;
-		Float actual = new TestMaximumMain<Float>(11.5f, 45.9f, 30.2f).testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-	@Test
-	public void test_Given_Max_Float_At_3rd_Position_Returns_Same_Number() {
-		Float expected = 95.6f;
-		Float actual= new TestMaximumMain<Float>(70.6f, 32.5f, 95.6f).testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-	@Test
-	public void test_Given_Max_String_At_1st_Position_Returns_Same_Number() {
-		String expected = "Manohar";
-		String actual = new TestMaximumMain<String>("Manohar", "Apple", "Dev").testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-	@Test
-	public void test_Given_Max_String_At_2nd_Position_Returns_Same_Number() {
-		String expected = "Ram";
-		String actual = new TestMaximumMain<String>("Manohar", "Ram", "Dev").testMaximum();
-		Assert.assertEquals(expected, actual);
-	}
-	@Test
-	public void test_Given_Max_String_At_3rd_Position_Returns_Same_Number() {
-		String expected = "Wangdu";
-		String actual = new TestMaximumMain<String>("Manohar", "Ram", "Wangdu").testMaximum();
+	public void test_Given_N_numberOfString_ShouldReturn_Maximum_StringValue() {
+		String expected = "PineApple";
+		String actual = new TestMaximumMain<String>().findMaximum("PineApple", "Apple", "Grapes", "Mango");
 		Assert.assertEquals(expected, actual);
 	}
 }
