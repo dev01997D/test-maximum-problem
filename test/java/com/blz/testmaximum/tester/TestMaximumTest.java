@@ -11,21 +11,21 @@ public class TestMaximumTest {
 	@Test
 	public void test_Given_N_numberOfInteger_ShouldReturn_Maximum_IntegerValue() {
 		Integer expected = 125;
-		Integer actual = new TestMaximumMain<Integer>().findMaximum(15, 4, 9, 78, 56, 48, 125, 98);
+		Integer actual = new TestMaximumMain<Integer>(15, 4, 9, 78, 56, 48, 125, 98).testMaximum();
 		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void test_Given_N_numberOfFloat_ShouldReturn_Maximum_FloatValue() {
 		Float expected = 100.5f;
-		Float actual = new TestMaximumMain<Float>().findMaximum(15.6f, 4.2f, 9.5f, 78.1f, 100.5f, 56.9f, 48.3f, 98.9f);
+		Float actual = new TestMaximumMain<Float>(15.6f, 4.2f, 9.5f, 78.1f, 100.5f, 56.9f, 48.3f, 98.9f).testMaximum();
 		Assert.assertEquals(expected, actual);
 	}
 
 	@Test
 	public void test_Given_N_numberOfString_ShouldReturn_Maximum_StringValue() {
 		String expected = "PineApple";
-		String actual = new TestMaximumMain<String>().findMaximum("PineApple", "Apple", "Grapes", "Mango");
+		String actual = new TestMaximumMain<String>("PineApple", "Apple", "Grapes", "Mango").testMaximum();
 		Assert.assertEquals(expected, actual);
 	}
 }
