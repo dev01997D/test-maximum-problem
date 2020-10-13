@@ -6,8 +6,18 @@ package com.blz.testmaximum.runner;
 import java.util.Arrays;
 
 public class TestMaximumMain<E extends Comparable<E>> {
+	E[] Values;
 
-	public TestMaximumMain() {
+	// Constructor to initialize values
+	public TestMaximumMain(E... Values) {
+		this.Values = Values;
+	}
+
+	// Internal method to call findMaximum and printMaximum method
+	public E testMaximum() {
+		E max = findMaximum(this.Values);
+		printMaximum(max);
+		return max;
 	}
 
 	// Method to take optional arguments and find max
@@ -18,12 +28,14 @@ public class TestMaximumMain<E extends Comparable<E>> {
 		return max;
 	}
 
+	// Printing maximum value
+	public void printMaximum(E max) {
+		System.out.println("The maximum value is : " + max);
+	}
+
 	public static void main(String[] args) {
-		System.out.println("Max String is : "
-				+ new TestMaximumMain<String>().findMaximum("PineApple", "Apple", "Grapes", "Mango"));
-		System.out.println(
-				"Max Integer value is : " + new TestMaximumMain<Integer>().findMaximum(15, 4, 9, 78, 56, 48, 125, 98));
-		System.out.println("Max Float value is : "
-				+ new TestMaximumMain<Float>().findMaximum(15.6f, 4.2f, 9.5f, 78.1f, 56.9f, 48.3f, 100.5f, 98.9f));
+		new TestMaximumMain<Integer>(15, 4, 9, 78, 56, 48, 125, 98).testMaximum();
+		new TestMaximumMain<Float>(15.6f, 4.2f, 9.5f, 78.1f, 56.9f, 48.3f, 100.5f, 98.9f).testMaximum();
+		new TestMaximumMain<String>("PineApple", "Apple", "Grapes", "Mango").testMaximum();
 	}
 }
