@@ -3,11 +3,21 @@
  */
 package com.blz.testmaximum.runner;
 
-public class TestMaximumMain {
+import java.util.Arrays;
+
+public class TestMaximumMain<E extends Comparable<E>> {
+	E obj1, obj2, obj3;
+
+	public TestMaximumMain(E obj1, E obj2, E obj3) {
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+		this.obj3 = obj3;
+	}
 
 	public TestMaximumMain() {
 	}
 
+	// Generic Method to find max
 	public static <E extends Comparable<E>> E findMax(E obj1, E obj2, E obj3) {
 		E max = obj1;
 		if (obj2.compareTo(max) > 0)
@@ -17,9 +27,16 @@ public class TestMaximumMain {
 		return max;
 	}
 
+	// Method to internally call static find max method
+	public E testMaximum() {
+		return findMax(this.obj1, this.obj2, this.obj3);
+	}
+
 	public static void main(String[] args) {
-		System.out.println("Max Integer number is : " + findMax(78, 89, 15));
-		System.out.println("Max Float number is : " + findMax(8.9f, 45.2f, 40.6f));
-		System.out.println("Max String is : " + findMax("PineApple", "Apple", "Wanana"));
+		System.out.println("Max Integer number is : " + new TestMaximumMain<Integer>(78, 89, 15).testMaximum());
+		System.out.println("Max Float number is : " + new TestMaximumMain<Float>(8.9f, 45.2f, 40.6f).testMaximum());
+		System.out.println(
+				"Max String is : " + new TestMaximumMain<String>("PineApple", "Apple", "Wanana").testMaximum());
+
 	}
 }
