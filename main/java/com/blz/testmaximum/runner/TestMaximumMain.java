@@ -3,39 +3,40 @@
  */
 package com.blz.testmaximum.runner;
 
-import java.util.Scanner;
+import java.util.Arrays;
 
-public class TestMaximumMain {
-	Integer a, b, c;
+public class TestMaximumMain<E extends Comparable<E>> {
+	E obj1, obj2, obj3;
 
-	public TestMaximumMain(Integer a, Integer b, Integer c) {
-		this.a = a;
-		this.b = b;
-		this.c = c;
+	public TestMaximumMain(E obj1, E obj2, E obj3) {
+		this.obj1 = obj1;
+		this.obj2 = obj2;
+		this.obj3 = obj3;
 	}
-	
-	//Printing the largest number
-	public void printMaxNumber() {
-		System.out.println("The maximum number is : " + findMax(a, b, c));
+
+	public TestMaximumMain() {
 	}
-	
-	//To find Maximum number from input
-	public Integer findMax(Integer a, Integer b, Integer c) {
-		Integer max = a;
-		if (b.compareTo(max) > 0)
-			max = b;
-		if (c.compareTo(max) > 0)
-			max = c;
+
+	// Generic Method to find max
+	public static <E extends Comparable<E>> E findMax(E obj1, E obj2, E obj3) {
+		E max = obj1;
+		if (obj2.compareTo(max) > 0)
+			max = obj2;
+		if (obj3.compareTo(max) > 0)
+			max = obj3;
 		return max;
 	}
 
+	// Method to internally call static find max method
+	public E testMaximum() {
+		return findMax(this.obj1, this.obj2, this.obj3);
+	}
+
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter three Integer numbers : ");
-		Integer a = sc.nextInt();
-		Integer b = sc.nextInt();
-		Integer c = sc.nextInt();
-		new TestMaximumMain(a, b, c).printMaxNumber();
-		sc.close();
+		System.out.println("Max Integer number is : " + new TestMaximumMain<Integer>(78, 89, 15).testMaximum());
+		System.out.println("Max Float number is : " + new TestMaximumMain<Float>(8.9f, 45.2f, 40.6f).testMaximum());
+		System.out.println(
+				"Max String is : " + new TestMaximumMain<String>("PineApple", "Apple", "Wanana").testMaximum());
+
 	}
 }
